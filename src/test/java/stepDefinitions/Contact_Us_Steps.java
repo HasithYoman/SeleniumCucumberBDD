@@ -19,7 +19,7 @@ public class Contact_Us_Steps {
     private WebDriver driver;
 
     //in here- before test get executed opening chrome
-    @Before
+    @Before("@contact_us")
     public void setup(){
 
         //System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/main/java/drivers/chromedriver.exe");
@@ -33,7 +33,7 @@ public class Contact_Us_Steps {
         driver.manage().window().maximize();
     }
     //After test finishg close the chrome browser
-    @After
+    @After("@contact_us")
     public void tearDown(){
         driver.quit();
     }
