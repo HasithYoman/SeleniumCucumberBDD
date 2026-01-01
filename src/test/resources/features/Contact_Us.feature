@@ -1,10 +1,12 @@
 @contact_us
 Feature: WebDriver University - Contact Us Page
 
-  //use gerking to map out the test scenario
-  Scenario: Validate Successful Submission - Unique data
-
+  Background:
     Given I access the webdriver university contact us page
+
+
+
+  Scenario: Validate Successful Submission - Unique data   //use gerking to map out the test scenario
     When I enter unique first name
     And I enter a unique last name
     And I enter a unique email address
@@ -14,7 +16,6 @@ Feature: WebDriver University - Contact Us Page
 
 
   Scenario: Validate Successful Submission - Specific data
-    Given I access the webdriver university contact us page
     When I enter a specific first name joe
     And I enter a specific last name blog
     And I enter a specific email address joe_blogs@Gmail.com
