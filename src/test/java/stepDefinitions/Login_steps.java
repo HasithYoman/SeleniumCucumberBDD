@@ -1,40 +1,20 @@
 package stepDefinitions;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 
+import static driver.drivers.DriverFactory.getDriver;
+
+
 public class Login_steps {
-    private WebDriver driver;
 
-    //in here- before test get executed opening chrome
-    @Before("@Login")
-    public void setup(){
+    private WebDriver driver= getDriver();
 
-        //System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/main/java/drivers/chromedriver.exe");
-        System.setProperty(
-                "webdriver.chrome.driver",
-                System.getProperty("user.dir") + "/src/main/java/drivers/chromedriver.exe"
-        );
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        driver = new ChromeDriver(chromeOptions);
-        driver.manage().window().maximize();
-    }
-    //After test finishg close the chrome browser
-    @After("@Login")
-    public void tearDown(){
-        driver.quit();
-    }
     @Given("I access the webdriver university login page")
     public void i_access_the_webdriver_university_login_page(){
         driver.get("https://www.webdriveruniversity.com/Login-Portal/index.html?");
@@ -44,7 +24,7 @@ public class Login_steps {
 //        driver.findElement(By.id("text")).sendKeys(username);
 //    }
 
-    @When("I enter a username {word}")
+    @When("I enter a username {string}")
     public void i_enter_a_unique_username(String username) {
         driver.findElement(By.id("text")).sendKeys(username);
     }

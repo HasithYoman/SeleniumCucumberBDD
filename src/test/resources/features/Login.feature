@@ -1,10 +1,10 @@
-@Login
+@Login @regression
 Feature: Webdriver University - Login Page
 
   Background:
     Given I access the webdriver university login page
 
-
+@smoke
   Scenario: Validate Successful Login
     When I enter a username "webdriver"
     And I enter a password "webdriver123"
@@ -19,7 +19,7 @@ Feature: Webdriver University - Login Page
 
 
   Scenario Outline: Validate - Successful and Unsuccessful login
-    When I enter a username <username>
+    When I enter a username "<username>"
     And I enter a password "<password>"
     And I click on the login button
     Then I should be presented with the following login validation message <loginValidationMessage>
