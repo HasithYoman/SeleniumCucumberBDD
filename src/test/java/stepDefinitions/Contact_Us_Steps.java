@@ -9,10 +9,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import pageObjects.Base_PO;
 
 import static driver.drivers.DriverFactory.getDriver;
 
-public class Contact_Us_Steps{
+public class Contact_Us_Steps extends Base_PO {
 //    private WebDriver driver;
 //
 //    //in here- before test get executed opening chrome
@@ -37,21 +38,15 @@ public class Contact_Us_Steps{
 
     private WebDriver driver= getDriver();
 
-    public String genrerateRandomNumber(int length){
-        return RandomStringUtils.randomNumeric(length);
-    }
-
-    public String genrerateRandomString(int length){
-        return RandomStringUtils.randomAlphabetic(length);
-    }
-
     @Given("I access the webdriver university contact us page")
     public void i_access_the_webdriver_university_contact_us_page() {
-        driver.get("https://www.webdriveruniversity.com/Contact-Us/contactus.html");
+        //driver.get("https://www.webdriveruniversity.com/Contact-Us/contactus.html");
+        navigateTo_URL("https://www.webdriveruniversity.com/Contact-Us/contactus.html");
     }
     @When("I enter unique first name")
     public void i_enter_unique_first_name() {
-        driver.findElement(By.xpath("//input[@name='first_name']")).sendKeys("AutoFN" + genrerateRandomNumber(5));
+        //driver.findElement(By.xpath("//input[@name='first_name']")).sendKeys("AutoFN" + genrerateRandomNumber(5));
+        sendKeys(By.xpath("//input[@name='first_name']"),"AutoFN" + genrerateRandomNumber(5));
     }
     @And("I enter a unique last name")
     public void i_enter_a_unique_last_name() {
