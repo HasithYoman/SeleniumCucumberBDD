@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class Login_PO extends Base_PO{
 
+    //step definitions
     private @FindBy(id = "text")
     WebElement userName_textField;
 
@@ -18,7 +19,7 @@ public class Login_PO extends Base_PO{
     public Login_PO() {
         super();
     }
-
+    //step definitions
     public void navigateTo_webDriverUniversity_login_page(){
         navigateTo_URL("https://www.webdriveruniversity.com/Login-Portal/index.html?");
     }
